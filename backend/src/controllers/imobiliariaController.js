@@ -76,8 +76,12 @@ module.exports = {
 
     //adiciona o id do imovel criado em uma imobiliaria atravez do id da mesma
     async adicionarImovel(req,res){
+        let imovel = {
+            id: req.params.idImovel
+        }
+        
         await Imobiliaria.findOneAndUpdate(req.params.id,
-            {$push: {id: req.body}}).then(
+            {$push: {imoveis: imovelId}}).then(
             imobiliaria =>{
                 return res.json(imobiliaria);
             }
@@ -89,7 +93,7 @@ module.exports = {
     async deletarImovel(req, res){
         await Imobiliaria.findOne(req.params.id).then(
             imobiliaria =>{
-                imobiliaria.imoveis.remove(req.params.id);
+                imobiliaria.imoveis.remove(req.params.imovelId);
                 imobiliaria.save();
                 return res.json(imobiliaria);
             }
