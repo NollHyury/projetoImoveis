@@ -1,4 +1,7 @@
 const Imovel = require('../models/imovel');
+const sharp = require('sharp');
+const path =  require('path')
+const fs =  require('fs');
 
 
 module.exports = {
@@ -28,7 +31,18 @@ module.exports = {
             condominio,
         } = req.body;
 
+        const { filename : image} = req.file;
+        const [name] = image.split('.');
+        const fileName = `${name}.jpg`;
 
+        await sharp(req.file.path)// caminho até o file 
+        .resize(500)
+        .jpeg({quality: 70 })
+        .toFile(
+            path.resolve(req.file.destination, 'images')
+        );
+        
+        fs.unlinkSync(req.file.path)
 
 
         let imovel = await Imovel.create({
@@ -45,7 +59,9 @@ module.exports = {
             condominio,
         })
 
-        res.json(imovel);
+        req.io.emit('imovel', imovel)
+
+        return res.json(imovel);
 
     },
 
@@ -59,7 +75,7 @@ module.exports = {
 
 
     async postImage(req, res){
-        await 
+
     },
 
 
