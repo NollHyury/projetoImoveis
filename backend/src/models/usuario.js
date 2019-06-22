@@ -9,7 +9,6 @@ const UsuarioSchema = mongoose.Schema({
     cpf: String,
     telefone: String,
     imoveisFavoritos: [
-        {id_imovel : String}
     ],
 },{
     timestamps: true,

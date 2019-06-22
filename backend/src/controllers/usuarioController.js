@@ -45,14 +45,15 @@ module.exports = {
 
     //registra no banco o id do imovel que o usuario tem como favorito
     async favoritarImovel(req, res){
-        const usuario = await Usuario.findById(req.params.id);
-        usuario.imoveisFavoritos.push(req.params.idImovel);
-
-        usuario.save();
-        console.log(usuario.imoveisFavoritos);
-
-
-        res.json(usuario);
+        let imovelFavorito = {
+            id : req.params.idImovel
+        }
+        await Usuario.findOneAndUpdate(req.params.id,
+            {$push: {imoveisFavoritos : imovelFavorito}}).then(
+            usuario =>{
+                return res.json(usuario);
+            }
+        )
     },
 
 
@@ -62,10 +63,9 @@ module.exports = {
         usuario.imoveisFavoritos.remove(req.params.idImovel);
 
         usuario.save();
-        console.log(usuario.imoveisFavoritos);
-
-
-        res.json(usuario);
+     
+        return res.json(usuario);
+        
     },
 
    

@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 
+
 const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}));
@@ -15,8 +16,11 @@ mongoose.connect("mongodb+srv://imoveis:imoveis@cluster0-aga7s.mongodb.net/imove
 
 
 //rotas
-app.use(require('./routes/usuarioRoutes')) //rotas usuarios
-app.use(require('./routes/imovelRoutes')) // rotas dos imoveis
+app.use(require('./routes/imobiliariaRoutes')); //rotas imobiliaria
+app.use(require('./routes/usuarioRoutes')); //rotas usuarios
+app.use(require('./routes/imovelRoutes')); // rotas dos imoveis
+
+
 
 
 

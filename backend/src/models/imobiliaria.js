@@ -6,6 +6,8 @@ const Imobiliaria = mongoose.Schema({
     endereco: String,
     cnpj: String,
     email: String,
+    imoveis: [
+    ],
 },
     {timesTemps : true}
 );
