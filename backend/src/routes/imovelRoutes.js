@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const imageConfig = require('../../config/upload')
+const imageConfig = require('../config/upload')
 
 const imovelController = require('../controllers/imovelController')
 
