@@ -82,6 +82,18 @@ module.exports = {
                 return res.json(imobiliaria);
             }
         )
-    }   
+    },
+
+
+    //deleta imoveis de uma imobiliaria 
+    async deletarImovel(req, res){
+        await Imobiliaria.findOne(req.params.id).then(
+            imobiliaria =>{
+                imobiliaria.imoveis.remove(req.params.id);
+                imobiliaria.save();
+                return res.json(imobiliaria);
+            }
+        ) 
+    },
 
 }
