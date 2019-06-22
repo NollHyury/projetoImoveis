@@ -8,8 +8,7 @@ const UsuarioSchema = mongoose.Schema({
     endereco: String,
     cpf: String,
     telefone: String,
-    imoveisFavoritos: [
-    ],
+    imoveisFavoritos: Array,
 },{
     timestamps: true,
 }
