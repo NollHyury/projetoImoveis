@@ -39,7 +39,7 @@ module.exports = {
         .resize(500)
         .jpeg({quality: 70 })
         .toFile(
-            path.resolve(req.file.destination, 'images')
+            path.resolve(req.file.destination, 'resized', fileName)
         );
         
         fs.unlinkSync(req.file.path)
@@ -59,7 +59,7 @@ module.exports = {
             condominio,
         })
 
-        req.io.emit('imovel', imovel)
+        //req.io.emit('imovel', imovel)
 
         return res.json(imovel);
 
