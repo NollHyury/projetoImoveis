@@ -87,12 +87,16 @@ module.exports = {
 
     //este metodo faz a validação de email e senha no banco de dados e retorna um json de usuario
     async checkPassword(req, res){
+        let {email , senha } = req.body;
+        
+        
         let retornoJson = {
             status: Boolean,
             usuario: Object
         }
-        await Usuario.findOne({email : req.body.email, senha : req.body.senha, cpf: req.body.cpf}).then(
+        await Usuario.findOne({email : email, senha : senha}).then(
             usuarioReq => {
+                console.log(usuarioReq)
                 if(usuarioReq == null){
                     retornoJson.status = false
                     return res.json(retornoJson);

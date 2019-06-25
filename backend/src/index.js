@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(cors())
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser());
+
 
 mongoose.connect("mongodb+srv://imoveis:imoveis@cluster0-aga7s.mongodb.net/imoveis?retryWrites=true&w=majority", {
     useNewUrlParser : true,

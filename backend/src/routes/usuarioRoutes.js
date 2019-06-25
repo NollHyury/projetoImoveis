@@ -14,7 +14,7 @@ routes.put('/usuario/:id/:idImovel', usuarioController.favoritarImovel);
 routes.delete('/usuario/:id/:idImovel', usuarioController.removerImovelFavorito);
 routes.delete('/usuario/:id',usuarioController.delete);
 routes.put('/usuario/:id', usuarioController.update);
-routes.get('/usuario/pass', usuarioController.checkPassword);
+routes.post('/usuario/pass', usuarioController.checkPassword);
 routes.get('/usuario/imoveis/:id/:idImovel', usuarioController.verificarImovelFavorito);
 
 module.exports = routes;
