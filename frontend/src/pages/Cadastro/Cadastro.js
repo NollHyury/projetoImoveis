@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/apiIgluSistemas';
+import {Link} from 'react-router-dom'
 
 
 import './Cadastro.css';
@@ -102,6 +103,8 @@ class Cadastro extends Component {
                   value={this.state.telefone}
               />
               <button type="submit">Cadastrar-Se</button>
+              <Link to="/login">Login</Link>
+              <br/>
           </form>
         </fieldset>
       )

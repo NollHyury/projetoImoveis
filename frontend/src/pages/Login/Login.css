@@ -9,10 +9,6 @@ fieldset h2{
 
   fieldset{
     background-color: rgb(228, 250, 229);
-    margin-top: 1%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 1%;
     border-style: dotted;
     border-radius: 5px;
     border: 1px solid;
@@ -64,6 +60,7 @@ form#login-usuario input[type=text],[type=password] {
     align-content: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 3%;
   }
 
   form#login-usuario h3{
@@ -75,4 +72,5 @@ form#login-usuario input[type=text],[type=password] {
     margin-bottom: 25px;
     font-size: 15px;
   }
+
 

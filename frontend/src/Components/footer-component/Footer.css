@@ -1,6 +1,13 @@
-footer#main-footer{
+div#main-footer p{
+    color: azure;
+    margin-top: 1%;
+}
+
+
+div#main-footer{
     background: rgb(35, 56, 172);
-    height: 115px;
+    height: 15%;
+    width: 98%;
     border: 2px solid rgb(0, 0, 0);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -8,9 +15,10 @@ footer#main-footer{
     margin-right: 1%;
     margin-left: 1%;
     margin-bottom: 1%;
-    color: white;
     text-align: center;
+    position: relative;
 };
+
 
 
 

@@ -33,6 +33,7 @@ form#new-usuario {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 3%;
   }
 
   form#new-usuario h3{
@@ -65,3 +66,10 @@ form#new-usuario {
     border-color: black;
 
   }
+
+  button#logar {
+    margin-right: 2%;
+    margin-left: 90%;
+    margin-bottom: 2%;
+  }
+ 

@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
+import {Link} from 'react-router-dom'
 import api from '../../services/apiIgluSistemas';
+
+
 
 import './Login.css'
 
@@ -59,6 +62,7 @@ class Login extends Component{
               />
 
               <button type="submit">Logar!</button>
+              <Link to="/cadastroUsuario">Cadastre-se</Link>
         </form>
         </fieldset>
     )}
