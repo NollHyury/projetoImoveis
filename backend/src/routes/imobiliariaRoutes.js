@@ -7,7 +7,7 @@ routes.get('/imobiliaria/:id',imobiliariaController.getOne);
 routes.get('/imobiliaria',imobiliariaController.getAll);
 routes.put('/imobiliaria/:id',imobiliariaController.put)
 routes.delete('/imobiliaria/:id',imobiliariaController.delete);
-routes.put('/imobiliaria/:id/:imovelId', imobiliariaController.adicionarImovel);
+routes.put('/imobiliaria/addImovel/:id/:imovelId', imobiliariaController.adicionarImovel);
 routes.delete('imobiliaria/:id/:imovelId',imobiliariaController.deletarImovel);
 
 

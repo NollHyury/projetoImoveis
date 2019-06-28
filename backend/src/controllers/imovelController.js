@@ -75,7 +75,7 @@ module.exports = {
 
 
     async postImage(req, res){
-
+        
     },
 
 
