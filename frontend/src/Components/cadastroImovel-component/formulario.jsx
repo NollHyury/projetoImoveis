@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import api from '../../services/apiIgluSistemas';
 import {Link} from 'react-router-dom'
 
-//import './Cad_Imobiliaria.css'
+import './formulario.css';
 
 class Formulario extends Component{
    
@@ -54,10 +54,12 @@ class Formulario extends Component{
 
     render(){
         return (
-            <form id="new-Imovel" onSubmit={this.handleSubmit}>
+        <div id="form">
             <h2>Cadastre Seu Imovel!</h2>
+            <form id="new-Imovel" onSubmit={this.handleSubmit}>
             <br/>
                 <input 
+                    required 
                     type="text" 
                     name="endereco" 
                     placeholder="Digite o endereco"
@@ -65,72 +67,82 @@ class Formulario extends Component{
                     value={this.state.endereco}
                 />
                 <input 
-                    type="" 
+                    required 
+                    type="number" 
                     name="preco" 
                     placeholder="Digite o valor do imovel"
                     onChange={this.handleChange}
-                    value={this.state.}
+                    value={this.state.preco}
                 />
                 <input 
-                    type="" 
+                    required 
+                    type="number" 
                     name="num_quarto" 
                     placeholder="Digite o numero de quartos do imovel"
                     onChange={this.handleChange}
                     value={this.state.num_quarto}
                 />
-                <input
-                    type=""
+                <input 
+                    required
+                    type="number"
                     name="num_sala"
                     placeholder="Digite o numero de  do imovel"
                     onChange={this.handleChange}
                     value={this.state.num_sala}
                 />
-                <input
+                <input 
+                    required
                     type="number"
                     name="num_garagem"
                     placeholder="Digite o numero de garagens do imovel"
                     onChange={this.handleChange}
-                    value={this.state.}
+                    value={this.state.num_garagem}
                 />
-                <input
+                <input 
+                    required
                     type="text"
                     name="cozinha"
                     placeholder="imovel possui cozinha"
                     onChange={this.handleChange}
                     value={this.state.cozinha}
                 />
-                <input
+                <input 
+                    required
                     type="number"
                     name="metro_quadrados"
                     placeholder="Digite o tamnho do imovel"
                     onChange={this.handleChange}
                     value={this.state.metros_quadrados}
                 />
-                <input
+                <input 
+                    required
                     type="text"
                     name="varanda"
                     placeholder="O imovel possui varanda?"
                     onChange={this.handleChange}
                     value={this.state.varanda}
                 />
-                <input
+                <input 
+                    required
                     type="text"
                     name="elevador"
                     placeholder="O imovel possui elevador"
                     onChange={this.handleChange}
                     value={this.state.elevador}
                 />
-                <input
+                <input 
+                    required
                     type="text"
                     name="condominio"
                     placeholder="O imovel possui condominio"
                     onChange={this.handleChange}
                     value={this.state.condominio}
                 />
-                <button type="submit">Cadastrar Imovel</button>
+                <button type="submit" class="btn btn-primary">Cadastrar Imovel</button>
                 <Link to="/feed">Feed</Link>
                 <br/>
             </form>
+        </div>
         );
     };
 }

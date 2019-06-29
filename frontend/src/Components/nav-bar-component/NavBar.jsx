@@ -20,13 +20,12 @@ export default function NavBar(){
         Cadastros
       </Link>
       <div class="dropdown-menu">
-        <Link class="dropdown-item">Imobiliaria</Link>
-        <Link class="dropdown-item">Imovel</Link>
+        <Link class="dropdown-item" to="/cadastroImobiliaria">Imobiliaria</Link>
+        <Link class="dropdown-item" to="/cadastroImovel">Imovel</Link>
       </div>
     </li>
   </ul>
   <h1>Iglu Imoveis MVC</h1>
-
 </nav>
     )
 }

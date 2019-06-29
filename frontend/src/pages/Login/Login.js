@@ -44,6 +44,7 @@ class Login extends Component{
         <div id="formulario">
           <form id="login-usuario" onSubmit={this.handleSubmit}>
           <h2>Faça seu Login!</h2>
+          <br/>
               <input 
                   type="text" 
                   name="email" 
@@ -51,6 +52,7 @@ class Login extends Component{
                   onChange={this.handleChange}
                   value={this.state.email}
               />
+              <br/>
 
               <input 
                   type="password" 
@@ -59,7 +61,7 @@ class Login extends Component{
                   onChange={this.handleChange}
                   value={this.state.senha}
               />
-
+                <br/>
               <button type="submit">Logar!</button>
               <Link to="/cadastroUsuario">Cadastre-se</Link>
         </form>
