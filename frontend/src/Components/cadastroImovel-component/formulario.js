@@ -40,7 +40,7 @@ class Formulario extends Component{
            api.put(`imobiliaria/addImovel/${imovel.id_imobiliaria}/${imovel._id}`).then(
                imobiliaria =>{
                 console.log(imobiliaria.imoveis);
-                alert('imovel criado com sucesso')
+                alert('imovel criado com sucesso');
                }
            )
        });
@@ -64,9 +64,69 @@ class Formulario extends Component{
                     onChange={this.handleChange}
                     value={this.state.endereco}
                 />
-                
-                
-               
+                <input 
+                    type="" 
+                    name="preco" 
+                    placeholder="Digite o valor do imovel"
+                    onChange={this.handleChange}
+                    value={this.state.}
+                />
+                <input 
+                    type="" 
+                    name="num_quarto" 
+                    placeholder="Digite o numero de quartos do imovel"
+                    onChange={this.handleChange}
+                    value={this.state.num_quarto}
+                />
+                <input
+                    type=""
+                    name="num_sala"
+                    placeholder="Digite o numero de  do imovel"
+                    onChange={this.handleChange}
+                    value={this.state.num_sala}
+                />
+                <input
+                    type="number"
+                    name="num_garagem"
+                    placeholder="Digite o numero de garagens do imovel"
+                    onChange={this.handleChange}
+                    value={this.state.}
+                />
+                <input
+                    type="text"
+                    name="cozinha"
+                    placeholder="imovel possui cozinha"
+                    onChange={this.handleChange}
+                    value={this.state.cozinha}
+                />
+                <input
+                    type="number"
+                    name="metro_quadrados"
+                    placeholder="Digite o tamnho do imovel"
+                    onChange={this.handleChange}
+                    value={this.state.metros_quadrados}
+                />
+                <input
+                    type="text"
+                    name="varanda"
+                    placeholder="O imovel possui varanda?"
+                    onChange={this.handleChange}
+                    value={this.state.varanda}
+                />
+                <input
+                    type="text"
+                    name="elevador"
+                    placeholder="O imovel possui elevador"
+                    onChange={this.handleChange}
+                    value={this.state.elevador}
+                />
+                <input
+                    type="text"
+                    name="condominio"
+                    placeholder="O imovel possui condominio"
+                    onChange={this.handleChange}
+                    value={this.state.condominio}
+                />
                 <button type="submit">Cadastrar Imovel</button>
                 <Link to="/feed">Feed</Link>
                 <br/>

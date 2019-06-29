@@ -31,6 +31,8 @@ module.exports = {
             condominio,
         } = req.body;
 
+
+        /* reavaliar
         const { filename : image} = req.file;
         const [name] = image.split('.');
         const fileName = `${name}.jpg`;
@@ -44,7 +46,7 @@ module.exports = {
         
         fs.unlinkSync(req.file.path)
 
-
+        */
         let imovel = await Imovel.create({
             id_imobiliaria,
             endereco,
