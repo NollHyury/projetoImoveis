@@ -5,19 +5,18 @@ import {Link} from 'react-router-dom'
 import './formulario.css';
 
 class Formulario extends Component{
-   
     state = {
     id_imobiliaria:'5d15532e5bf22f1df8e6b070',
-    endereco:'',
-    preco:'',
-    num_quarto:'',
-    num_sala:'',
-    num_garagem:'',
-    cozinha:'',
-    metros_quadrados:'',
-    varanda:'',
-    elevador:'',
-    condominio:'',
+    endereco:null,
+    preco:null,
+    num_quarto:null,
+    num_sala:null,
+    num_garagem:null,
+    cozinha:null,
+    metros_quadrados:null,
+    varanda:null,
+    elevador:null,
+    condominio:null,
    }
 
    handleSubmit = async e=>{
@@ -36,16 +35,18 @@ class Formulario extends Component{
        data.append('elevador', this.state.elevador);
        data.append('condominio', this.state.condominio);
 
-       await api.post('imovel', this.state).then(imovel =>{
+       console.log(data);
+       
+       await api.post('imovel', data ).then(imovel =>{
            api.put(`imobiliaria/addImovel/${imovel.id_imobiliaria}/${imovel._id}`).then(
                imobiliaria =>{
-                console.log(imobiliaria.imoveis);
-                alert('imovel criado com sucesso');
+                
                }
            )
+           console.log(data);
        });
 
-       this.props.history.push('/');
+       
    };
 
    handleChange = e=>{
@@ -59,7 +60,6 @@ class Formulario extends Component{
             <form id="new-Imovel" onSubmit={this.handleSubmit}>
             <br/>
                 <input 
-                    required 
                     type="text" 
                     name="endereco" 
                     placeholder="Digite o endereco"
@@ -67,7 +67,6 @@ class Formulario extends Component{
                     value={this.state.endereco}
                 />
                 <input 
-                    required 
                     type="number" 
                     name="preco" 
                     placeholder="Digite o valor do imovel"
@@ -75,7 +74,6 @@ class Formulario extends Component{
                     value={this.state.preco}
                 />
                 <input 
-                    required 
                     type="number" 
                     name="num_quarto" 
                     placeholder="Digite o numero de quartos do imovel"
@@ -83,7 +81,6 @@ class Formulario extends Component{
                     value={this.state.num_quarto}
                 />
                 <input 
-                    required
                     type="number"
                     name="num_sala"
                     placeholder="Digite o numero de  do imovel"
@@ -91,7 +88,6 @@ class Formulario extends Component{
                     value={this.state.num_sala}
                 />
                 <input 
-                    required
                     type="number"
                     name="num_garagem"
                     placeholder="Digite o numero de garagens do imovel"
@@ -99,7 +95,6 @@ class Formulario extends Component{
                     value={this.state.num_garagem}
                 />
                 <input 
-                    required
                     type="text"
                     name="cozinha"
                     placeholder="imovel possui cozinha"
@@ -107,7 +102,6 @@ class Formulario extends Component{
                     value={this.state.cozinha}
                 />
                 <input 
-                    required
                     type="text"
                     name="varanda"
                     placeholder="O imovel possui varanda?"
@@ -115,15 +109,13 @@ class Formulario extends Component{
                     value={this.state.varanda}
                 />
                 <input 
-                    required
                     type="text"
                     name="elevador"
                     placeholder="O imovel possui elevador"
                     onChange={this.handleChange}
                     value={this.state.elevador}
                 />
-                <input 
-                    required
+                <input
                     type="text"
                     name="condominio"
                     placeholder="O imovel possui condominio"
@@ -132,14 +124,13 @@ class Formulario extends Component{
                 />
 
                 <input 
-                    required
                     type="number"
-                    name="metro_quadrados"
+                    name="metros_quadrados"
                     placeholder="Digite o tamnho do imovel"
                     onChange={this.handleChange}
                     value={this.state.metros_quadrados}
                 />      
-                <button type="submit" class="btn btn-primary">Cadastrar Imovel</button>
+                <button type="submit">Cadastrar Imovel</button>
                 <Link to="/feed">Feed</Link>
                 <br/>
             </form>

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Modal,Button} from 'react-bootstrap';
 import Form from '../cadastroImovel-component/formCadastro'
+import api from '../../services/apiIgluSistemas'
+import Form2 from '../cadastroImovel-component/formulario'
 
 console.log(Form);
 
@@ -17,12 +19,18 @@ class Example extends React.Component {
     }
   
     handleClose() {
+      console.log(this.handleSubmit)
       this.setState({ show: false });
     }
   
     handleShow() {
       this.setState({ show: true });
     }
+
+  handleChange = e=>{
+      this.setState({[e.target.name]: e.target.value});
+  };
+  
     
     render() {
       return (
@@ -40,9 +48,6 @@ class Example extends React.Component {
             <Modal.Footer>
               <Button variant="secondary" onClick={this.handleClose}>
                 Close
-              </Button>
-              <Button variant="primary" onClick={this.handleSubmit}>
-                Save Changes
               </Button>
             </Modal.Footer>
           </Modal>

@@ -81,7 +81,7 @@ module.exports = {
         }
         
         await Imobiliaria.findOneAndUpdate(req.params.id,
-            {$push: {imoveis: imovelId}}).then(
+            {$push: {imoveis: imovel.id}}).then(
             imobiliaria =>{
                 return res.json(imobiliaria);
             }

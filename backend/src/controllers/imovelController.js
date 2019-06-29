@@ -18,7 +18,7 @@ module.exports = {
 
     async post(req,res){
 
-        let {id_imobiliaria,
+        const {
             endereco,
             preco,
             num_quarto,
@@ -29,10 +29,11 @@ module.exports = {
             varanda,
             elevador,
             condominio,
+            complemento,
             num_banheiro,
         } = req.body;
 
-
+        console.log(req.body)
         /* reavaliar
         const { filename : image} = req.file;
         const [name] = image.split('.');
@@ -48,8 +49,7 @@ module.exports = {
         fs.unlinkSync(req.file.path)
 
         */
-        let imovel = await Imovel.create({
-            id_imobiliaria,
+        const imovel = await Imovel.create({
             endereco,
             preco,
             num_quarto,
@@ -60,6 +60,7 @@ module.exports = {
             varanda,
             elevador,
             condominio,
+            complemento,
             num_banheiro,
         })
 

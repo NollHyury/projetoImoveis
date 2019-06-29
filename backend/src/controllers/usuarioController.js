@@ -1,5 +1,5 @@
 const Usuario = require('../models/usuario');
-const Imovel = require('../models/imovel');
+
 
 module.exports = {
 
@@ -23,7 +23,6 @@ module.exports = {
             cpf,
             telefone,
         });
-
         return res.json(usuario)
     },
 

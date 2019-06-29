@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Imovel = mongoose.Schema({
-    id_imobiliaria: String,
+    
     endereco: String,
     preco: Number,
     num_quarto: Number,
@@ -12,9 +12,9 @@ const Imovel = mongoose.Schema({
     varanda: Boolean,
     elevador: Boolean,
     condominio: Boolean,
-    num_banheiro: Number,
     imagens: Array,
-
+    complemento: String,
+    num_banheiro: Number,
 },
     {timesTemps : true}
 );
