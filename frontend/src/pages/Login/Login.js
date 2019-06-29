@@ -41,10 +41,9 @@ class Login extends Component{
 
     render(){
         return (
-        <fieldset>
-          <h2>Faça seu Login!</h2>
+        <div id="formulario">
           <form id="login-usuario" onSubmit={this.handleSubmit}>
-              <h3>Informe seu email e senha para efetuar o login</h3>
+          <h2>Faça seu Login!</h2>
               <input 
                   type="text" 
                   name="email" 
@@ -64,7 +63,7 @@ class Login extends Component{
               <button type="submit">Logar!</button>
               <Link to="/cadastroUsuario">Cadastre-se</Link>
         </form>
-        </fieldset>
+        </div>
     )}
 }
 

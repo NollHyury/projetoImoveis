@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #eff7f7;
+    background: #d4d4d4;
     font : 14px Arial, helvetica,sans-serif;
     -webkit-font-smoothing : antialiased !important;
 
@@ -17,3 +17,11 @@ fieldset {
     margin-bottom: 1%;
     margin-top: 1%;
 }
+
+.navbar-expand-sm{
+    margin-top: 0.14%;
+    margin-right:0.35%;
+    margin-left:0.35%;
+    margin-bottom:0.35%;
+}
+

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import api from '../../services/apiIgluSistemas';
 import {Link} from 'react-router-dom'
 
-import './Cad_Imobiliaria.css'
+//import './Cad_Imobiliaria.css'
 
 class Formulario extends Component{
    
@@ -64,37 +64,10 @@ class Formulario extends Component{
                     onChange={this.handleChange}
                     value={this.state.endereco}
                 />
-  
-                <input 
-                    type="text" 
-                    name="responsavel" 
-                    placeholder="Digite o nome do responsavel"
-                    onChange={this.handleChange}
-                    value={this.state.responsavel}
-                />
-                <input 
-                    type="text" 
-                    name="email" 
-                    placeholder="Digite o email da imobiliaria"
-                    onChange={this.handleChange}
-                    value={this.state.email}
-                />
-                <input 
-                    type="text" 
-                    name="cnpj" 
-                    placeholder="Digite o cnpj da imobiliaria"
-                    onChange={this.handleChange}
-                    value={this.state.cnpj}
-                />
-                <input 
-                    type="text" 
-                    name="endereco" 
-                    placeholder="Digite o endereço da imobiliria"
-                    onChange={this.handleChange}
-                    value={this.state.endereco}
-                />
+                
+                
                
-                <button type="submit">Cadastrar Imobiliaria</button>
+                <button type="submit">Cadastrar Imovel</button>
                 <Link to="/feed">Feed</Link>
                 <br/>
             </form>
