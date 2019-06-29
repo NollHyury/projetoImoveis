@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Modal from '../testeModal/modal'
 
 import './navBar.css'
 
@@ -16,11 +17,11 @@ export default function NavBar(){
     </li>
 
     <li class="nav-item dropdown" id="cadastros">
-      <Link class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      <Link class="nav-link dropdown-toggle" to="#" id="navbardrop" data-toggle="dropdown">
         Cadastros
       </Link>
       <div class="dropdown-menu">
-        <Link class="dropdown-item" to="/cadastroImobiliaria">Imobiliaria</Link>
+        <Modal/>
         <Link class="dropdown-item" to="/cadastroImovel">Imovel</Link>
       </div>
     </li>

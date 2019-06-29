@@ -55,7 +55,7 @@ class Formulario extends Component{
     render(){
         return (
         <div id="form">
-            <h2>Cadastre Seu Imovel!</h2>
+                <h2>Cadastre Seu Imovel!</h2>
             <form id="new-Imovel" onSubmit={this.handleSubmit}>
             <br/>
                 <input 
@@ -108,14 +108,6 @@ class Formulario extends Component{
                 />
                 <input 
                     required
-                    type="number"
-                    name="metro_quadrados"
-                    placeholder="Digite o tamnho do imovel"
-                    onChange={this.handleChange}
-                    value={this.state.metros_quadrados}
-                />
-                <input 
-                    required
                     type="text"
                     name="varanda"
                     placeholder="O imovel possui varanda?"
@@ -138,6 +130,15 @@ class Formulario extends Component{
                     onChange={this.handleChange}
                     value={this.state.condominio}
                 />
+
+                <input 
+                    required
+                    type="number"
+                    name="metro_quadrados"
+                    placeholder="Digite o tamnho do imovel"
+                    onChange={this.handleChange}
+                    value={this.state.metros_quadrados}
+                />      
                 <button type="submit" class="btn btn-primary">Cadastrar Imovel</button>
                 <Link to="/feed">Feed</Link>
                 <br/>

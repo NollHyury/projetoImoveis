@@ -29,6 +29,7 @@ module.exports = {
             varanda,
             elevador,
             condominio,
+            num_banheiro,
         } = req.body;
 
 
@@ -59,6 +60,7 @@ module.exports = {
             varanda,
             elevador,
             condominio,
+            num_banheiro,
         })
 
         //req.io.emit('imovel', imovel)
