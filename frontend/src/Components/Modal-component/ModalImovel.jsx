@@ -1,12 +1,11 @@
 import React from 'react';
 import {Modal,Button} from 'react-bootstrap';
 import Form from '../cadastroImovel-component/formCadastro'
-import api from '../../services/apiIgluSistemas'
-import Form2 from '../cadastroImovel-component/formulario'
+
 
 console.log(Form);
 
-class Example extends React.Component {
+class ModalImovel extends React.Component {
     constructor(props, context) {
       super(props, context);
   
@@ -27,7 +26,6 @@ class Example extends React.Component {
       this.setState({ show: true });
     }
 
-    //dsa
   handleChange = e=>{
       this.setState({[e.target.name]: e.target.value});
   };
@@ -36,7 +34,7 @@ class Example extends React.Component {
     render() {
       return (
         <>
-          <Button onClick={this.handleShow}>
+          <Button variant="outline-dark" onClick={this.handleShow}>
             Cadastro Imovel
           </Button>
           <Modal size="xl" show={this.state.show} onHide={this.handleClose}>
@@ -47,7 +45,7 @@ class Example extends React.Component {
                 <Form/>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={this.handleClose}>
+              <Button variant="outline-danger" onClick={this.handleClose}>
                 Close
               </Button>
             </Modal.Footer>
@@ -57,4 +55,4 @@ class Example extends React.Component {
     }
   }
   
-export default Example;
+export default ModalImovel;

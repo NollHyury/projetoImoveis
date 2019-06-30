@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import {Link} from 'react-router-dom'
 import api from '../../services/apiIgluSistemas';
+import {Button} from 'react-bootstrap';
+
 
 
 
@@ -43,7 +45,7 @@ class Login extends Component{
         return (
         <div id="formulario">
           <form id="login-usuario" onSubmit={this.handleSubmit}>
-          <h2>Faça seu Login!</h2>
+          <h2>Faça Seu Login</h2>
           <br/>
               <input 
                   type="text" 
@@ -62,7 +64,7 @@ class Login extends Component{
                   value={this.state.senha}
               />
                 <br/>
-              <button type="submit">Logar!</button>
+              <Button variant="outline-success" type="submit">Login</Button>
               <Link to="/cadastroUsuario">Cadastre-se</Link>
         </form>
         </div>

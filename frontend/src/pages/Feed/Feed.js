@@ -6,9 +6,9 @@ import './Feed.css';
 
 class Feed extends Component {
     render(){
-        return <h1>
-            aqui fica o feed
-        </h1>
+        return (
+            <h1>...AGUARDANDO</h1>
+        )
     }
 }
 

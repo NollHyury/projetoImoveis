@@ -77,7 +77,7 @@ module.exports = {
     //adiciona o id do imovel criado em uma imobiliaria atravez do id da mesma
     async adicionarImovel(req,res){
         let imovel = {
-            id: req.params.idImovel
+            id: req.params.imovelId
         }
         
         await Imobiliaria.findOneAndUpdate(req.params.id,

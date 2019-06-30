@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import api from '../../services/apiIgluSistemas';
 import {Link} from 'react-router-dom'
 
-import './formulario.css';
 
 class Formulario extends Component{
     constructor(props, context) {
@@ -11,14 +10,14 @@ class Formulario extends Component{
     
       }
         state = {
-            id_imobiliaria:'',
+            idImobiliaria:'5d1553c15bf22f1df8e6b071',
             endereco:'',
-            preco:0,
-            num_quarto:0,
-            num_sala:0,
-            num_garagem:0,
-            num_banheiro:0,
-            metros_quadrados:0,
+            preco:Number,
+            num_quarto:Number,
+            num_sala:Number,
+            num_garagem:Number,
+            num_banheiro:Number,
+            metros_quadrados:Number,
             cozinha:false,
             varanda:false,
             elevador:false,
@@ -30,7 +29,6 @@ class Formulario extends Component{
 
    handleSubmit = async e=>{
        e.preventDefault();
-       console.log(this.state)
        const data = new FormData();
 
        data.append('endereco', this.state.endereco);
@@ -45,12 +43,16 @@ class Formulario extends Component{
        data.append('condominio', this.state.condominio)
        data.append('num_banheiro', this.state.num_banheiro);
        data.append('complemento',this.state.complemento)
+       data.append('idImobiliaria',this.state.idImobiliaria)
 
        
-       await api.post('imovel', this.state).then(imovel=>{
-           console.log(imovel)
-           alert('imovel criado');
-       })
+       await api.post('imovel', this.state ).then(imovel =>{
+           console.log(imovel.data);
+         api.put(`imobiliaria/addImovel/${imovel.data.id_imobiliaria}/${imovel.data._id}`).then(
+            imobiliaria =>{
+                alert(`um novo imovel foi adicionado a ${imobiliaria.nome}, com sucesso!`);
+            }
+        )})
        
        
    };
@@ -69,7 +71,7 @@ class Formulario extends Component{
                     <div class="form-group">
                         <label>Endereço</label>
                             <input class="form-control"
-                                 
+                                required 
                                 type="text" 
                                 name="endereco" 
                                 placeholder="Digite o endereco"
@@ -81,8 +83,9 @@ class Formulario extends Component{
                        <div class="form-group col-md-6">
                             <label>Preco</label>
                             <input class="form-control"
-                                 
+                                required 
                                 type="number"
+                                min="0"
                                 name="preco"
                                 placeholder="Digite o preço (R$)"
                                 onChange={this.handleChange}
@@ -92,7 +95,10 @@ class Formulario extends Component{
                        <div class="form-group col-md-6">
                        <label>Metros Quadrados</label>
                        <input class="form-control"
-                                type="text"
+                                required
+                                type="number"
+                                 min="0"
+                                 max="10"
                                 name="metros_quadrados"
                                 placeholder="Digite o tamanho do imovel"
                                 onChange={this.handleChange}
@@ -107,8 +113,10 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Dormitorios</label>
                             <input class="form-control" 
-                             
-                            type="number" 
+                            required
+                            type="number"
+                             min="0"
+                             max="10" 
                             name="num_quarto" 
                             placeholder="Quantidade"
                             onChange={this.handleChange}
@@ -118,8 +126,10 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Numero de Salas</label>
                             <input class="form-control" 
-                            
+                            required                           
                             type="number"
+                             min="0"
+                             max="10"
                             name="num_sala"
                             placeholder="Quantidade"
                             onChange={this.handleChange}
@@ -129,8 +139,10 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Garagens</label>
                             <input class="form-control"
-                            
+                            required                             
                             type="number"
+                             min="0"
+                             max="10"
                             name="num_garagem"
                             placeholder="Digite o numero de  do imovel"
                             onChange={this.handleChange}
@@ -140,8 +152,10 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Banheiros</label>
                             <input class="form-control"
-                            
+                            required                             
                             type="number"
+                             min="0"
+                             max="10"
                             name="num_banheiro"
                             placeholder="Digite o numero de  do imovel"
                             onChange={this.handleChange}
@@ -153,7 +167,7 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Cozinha</label>
                             <select class="form-control"
-                            
+                            required                             
                             type="text"
                             name="cozinha"
                             onChange={this.handleChange}
@@ -167,7 +181,7 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Condominio</label>
                             <select class="form-control"
-                            
+                            required                             
                             type="text"
                             name="condominio"
                             onChange={this.handleChange}
@@ -180,7 +194,7 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Varanda</label>
                             <select class="form-control"
-                            
+                            required                             
                             type="text"
                             name="varanda"
                             onChange={this.handleChange}
@@ -193,8 +207,8 @@ class Formulario extends Component{
                         <div class="form-group col">
                             <label>Elevador</label>
                             <select class="form-control"
-                            
-                            type="text"
+                            required                             
+                            type="boolean"
                             name="elevador"
                             onChange={this.handleChange}
                             value={this.state.elevador}
@@ -210,7 +224,7 @@ class Formulario extends Component{
                         <div class="form-group">
                         <label>Complemento</label>
                             <input class="form-control"
-                                 
+                                require  
                                 type="text" 
                                 name="complemento" 
                                 placeholder="Descreva algo"

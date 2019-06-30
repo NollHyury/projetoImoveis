@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Imovel = mongoose.Schema({
-    
+    idImobiliaria: String,
     endereco: String,
     preco: Number,
     num_quarto: Number,

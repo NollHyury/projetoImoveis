@@ -19,6 +19,7 @@ module.exports = {
     async post(req,res){
 
         const {
+            idImobiliaria,
             endereco,
             preco,
             num_quarto,
@@ -50,6 +51,7 @@ module.exports = {
 
         */
         const imovel = await Imovel.create({
+            idImobiliaria,
             endereco,
             preco,
             num_quarto,
