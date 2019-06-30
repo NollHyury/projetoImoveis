@@ -1,9 +1,8 @@
 import React from 'react';
 import {Modal,Button} from 'react-bootstrap';
-import Form from '../cadastroImovel-component/formCadastro'
+import FormImobiliaria from '../cadastroImobiliaria-component/formCadastro'
 
-
-class ModalImovel extends React.Component {
+class ModalImobiliaria extends React.Component {
     constructor(props, context) {
       super(props, context);
   
@@ -33,17 +32,17 @@ class ModalImovel extends React.Component {
       return (
         <>
           <Button variant="outline-dark" size="lg" onClick={this.handleShow}>
-            Imovel
+            Imobiliaria
           </Button>
           <Modal size="xl" show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Cadastro Imovel</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form/>
+                <FormImobiliaria></FormImobiliaria>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="outline-danger"  size="lg" onClick={this.handleClose}>
+              <Button variant="outline-danger" size="lg" onClick={this.handleClose}>
                 Fechar
               </Button>
             </Modal.Footer>
@@ -52,5 +51,5 @@ class ModalImovel extends React.Component {
       );
     }
   }
-  
-export default ModalImovel;
+
+  export default ModalImobiliaria;

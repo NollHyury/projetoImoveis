@@ -15,7 +15,6 @@ class Cad_Imobiliaria extends Component{
   
       handleSubmit = async e =>{
         e.preventDefault();
-        console.log(this.state);
   
         const data = new FormData();
   

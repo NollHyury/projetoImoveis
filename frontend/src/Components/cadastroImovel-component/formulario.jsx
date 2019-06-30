@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import api from '../../services/apiIgluSistemas';
 import {Link} from 'react-router-dom'
 
-import './formulario.css';
 
 class Formulario extends Component{
     state = {

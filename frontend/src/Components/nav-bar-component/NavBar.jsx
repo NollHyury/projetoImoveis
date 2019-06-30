@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Modal from '../Modal-component/ModalImovel'
+import ModalImobiliaria from '../Modal-component/ModalImobiliaria'
+import ModalImovel from '../Modal-component/ModalImovel'
 
 import './navBar.css'
 
@@ -21,8 +22,8 @@ export default function NavBar(){
         Cadastros
       </Link>
       <div class="dropdown-menu">
-        <Modal class="dropdown-item"/>
-        <Link class="dropdown-item" to="/cadastroImovel">Imovel</Link>
+        <ModalImobiliaria class="dropdown-item"/>
+        <ModalImovel class="dropdown-item"/>
       </div>
     </li>
   </ul>
