@@ -1,15 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const path = require('path');
 
 
 
 const app = express();
-// Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded());
 
-// Parse JSON bodies (as sent by API clients)
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+app.use((req, res, next)=>{
+    req.io = io;
+    next();
+})
+
+
+
+//app.use(express.urlencoded());
 app.use(express.json());
 app.use(cors())
 
@@ -32,7 +40,7 @@ app.use(require('./routes/imovelRoutes')); // rotas dos imoveis
 
 
 
-
+app.use('/files', express.static(path.resolve(__dirname,'..','uploads','resized')))
 
 app.listen(3333, () => {
     console.log("esperando na porta 3333")

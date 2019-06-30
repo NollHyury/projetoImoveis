@@ -7,7 +7,7 @@ const fs =  require('fs');
 module.exports = {
 
     async getAll(req,res){
-        let imovel = await Imovel.find();
+        let imovel = await Imovel.find().sort('-createdAt');
         return res.json(imovel);
     },
 
@@ -34,8 +34,7 @@ module.exports = {
             num_banheiro,
         } = req.body;
 
-        console.log(req.body)
-        /* reavaliar
+       
         const { filename : image} = req.file;
         const [name] = image.split('.');
         const fileName = `${name}.jpg`;
@@ -49,7 +48,7 @@ module.exports = {
         
         fs.unlinkSync(req.file.path)
 
-        */
+        
         const imovel = await Imovel.create({
             idImobiliaria,
             endereco,
@@ -66,7 +65,7 @@ module.exports = {
             num_banheiro,
         })
 
-        //req.io.emit('imovel', imovel)
+        req.io.emit('imovel', imovel)
 
         return res.json(imovel);
 

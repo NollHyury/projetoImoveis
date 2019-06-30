@@ -23,6 +23,7 @@ class Formulario extends Component{
             elevador:false,
             condominio:false,
             complemento:'',
+            image: null,
         }
 
 
@@ -40,10 +41,11 @@ class Formulario extends Component{
        data.append('metros_quadrados', this.state.metros_quadrados);
        data.append('varanda', this.state.varanda);
        data.append('elevador', this.state.elevador);
-       data.append('condominio', this.state.condominio)
+       data.append('condominio', this.state.condominio);
        data.append('num_banheiro', this.state.num_banheiro);
-       data.append('complemento',this.state.complemento)
-       data.append('idImobiliaria',this.state.idImobiliaria)
+       data.append('complemento',this.state.complemento);
+       data.append('idImobiliaria',this.state.idImobiliaria);
+       data.append('image', this.state.image);
 
        
        await api.post('imovel', this.state ).then(imovel =>{
@@ -234,6 +236,11 @@ class Formulario extends Component{
                     </div>
                     <hr/>
                         <h3>Envie fotos deste Imovel:</h3>
+                        <div class="form-group">
+                            <input class="form-control"
+                            type="file" 
+                            onChange={this.handleImageChange}/>
+                        </div>
                     <hr/>
                 <br/>
                 <button type="submit" class="btn btn-primary">Cadastrar Imovel</button>

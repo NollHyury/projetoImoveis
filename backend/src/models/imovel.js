@@ -12,7 +12,7 @@ const Imovel = mongoose.Schema({
     varanda: Boolean,
     elevador: Boolean,
     condominio: Boolean,
-    imagens: Array,
+    image: String,
     complemento: String,
     num_banheiro: Number,
 },
