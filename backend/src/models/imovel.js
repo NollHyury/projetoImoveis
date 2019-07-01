@@ -15,6 +15,8 @@ const Imovel = mongoose.Schema({
     image: String,
     complemento: String,
     num_banheiro: Number,
+    tipoImovel: String,
+    tipoNegocio:String,
 },
     {timesTemps : true}
 );

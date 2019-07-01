@@ -32,10 +32,12 @@ module.exports = {
             condominio,
             complemento,
             num_banheiro,
+            tipoImovel,
+            tipoNegocio,
         } = req.body;
 
        
-        const { filename : image} = req.file;
+        const {filename : image} = req.file;
         const [name] = image.split('.');
         const fileName = `${name}.jpg`;
 
@@ -63,6 +65,9 @@ module.exports = {
             condominio,
             complemento,
             num_banheiro,
+            image : fileName,
+            tipoImovel,
+            tipoNegocio,
         })
 
         req.io.emit('imovel', imovel)

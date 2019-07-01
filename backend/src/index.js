@@ -42,6 +42,6 @@ app.use(require('./routes/imovelRoutes')); // rotas dos imoveis
 
 app.use('/files', express.static(path.resolve(__dirname,'..','uploads','resized')))
 
-app.listen(3333, () => {
-    console.log("esperando na porta 3333")
-})
+server.listen(3333, () =>{
+    console.log('rodando na porta 333')
+});

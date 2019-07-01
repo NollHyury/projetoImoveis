@@ -1,14 +1,8 @@
 import React, {Component} from 'react';
 import api from '../../services/apiIgluSistemas';
-import {Link} from 'react-router-dom'
 
 
 class Formulario extends Component{
-    constructor(props, context) {
-        super(props, context);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    
-      }
         state = {
             idImobiliaria:'5d1553c15bf22f1df8e6b071',
             endereco:'',
@@ -24,6 +18,8 @@ class Formulario extends Component{
             condominio:false,
             complemento:'',
             image: null,
+            tipoImovel:String,
+            tipoNegocio:String,
         }
 
 
@@ -46,9 +42,11 @@ class Formulario extends Component{
        data.append('complemento',this.state.complemento);
        data.append('idImobiliaria',this.state.idImobiliaria);
        data.append('image', this.state.image);
+       data.append('tipoImovel', this.state.tipoImovel);
+       data.append('tipoNegocio', this.state.tipoNegocio);
 
        
-       await api.post('imovel', this.state ).then(imovel =>{
+       await api.post('imovel', data ).then(imovel =>{
            console.log(imovel.data);
          api.put(`imobiliaria/addImovel/${imovel.data.id_imobiliaria}/${imovel.data._id}`).then(
             imobiliaria =>{
@@ -63,6 +61,9 @@ class Formulario extends Component{
        this.setState({[e.target.name]: e.target.value});
    };
 
+   handleImageChange = e =>{
+    this.setState({image: e.target.files[0]})
+    }
 
    render(){
        return (
@@ -100,7 +101,6 @@ class Formulario extends Component{
                                 required
                                 type="number"
                                  min="0"
-                                 max="10"
                                 name="metros_quadrados"
                                 placeholder="Digite o tamanho do imovel"
                                 onChange={this.handleChange}
@@ -108,6 +108,39 @@ class Formulario extends Component{
                             />
                        </div>
                    </div>
+                   <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Tipo do Imóvel</label>
+                            <select class="form-control"
+                            required                             
+                            type="text"
+                            name="tipoImovel"
+                            onChange={this.handleChange}
+                            value={this.state.tipoImovel}
+                            >
+                            <option value="Casa">Casa</option>
+                            <option value="Terreno">Terreno</option>
+                            <option value="Apartamento">Apartamento</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Tipo de Negócio</label>
+                            <select class="form-control"
+                            required                             
+                            type="text"
+                            name="tipoNegocio"
+                            onChange={this.handleChange}
+                            value={this.state.tipoNegocio}
+                            >
+                            <option value="Venda">Venda</option>
+                            <option value="Aluguel">Aluguel</option>
+                            <option value="Temporada">Temporada</option>
+                        </select>
+                        </div>  
+                   </div>
+
+
+
                     <hr/>
                     <h3>Caracteristicas do Imovel:</h3>
                     <br/>
@@ -175,7 +208,7 @@ class Formulario extends Component{
                             onChange={this.handleChange}
                             value={this.state.cozinha}
                             >
-                            <option value="false">Não</option>
+                            <option selected value="false">Não</option>
                             <option value="true">Sim</option>
                         </select>
                         </div>
@@ -189,7 +222,7 @@ class Formulario extends Component{
                             onChange={this.handleChange}
                             value={this.state.condominio}
                             >
-                            <option value="false">Não</option>
+                            <option selected value="false">Não</option>
                             <option value="true">Sim</option>
                         </select>
                         </div>
@@ -202,7 +235,7 @@ class Formulario extends Component{
                             onChange={this.handleChange}
                             value={this.state.varanda}
                             >
-                            <option value="false">Não</option>
+                            <option selected value="false">Não</option>
                             <option value="true">Sim</option>
                         </select>
                         </div>
@@ -215,7 +248,7 @@ class Formulario extends Component{
                             onChange={this.handleChange}
                             value={this.state.elevador}
                             >
-                            <option value="false">Não</option>
+                            <option selected value="false">Não</option>
                             <option value="true">Sim</option>
                         </select>
                         </div>
@@ -238,13 +271,13 @@ class Formulario extends Component{
                         <h3>Envie fotos deste Imovel:</h3>
                         <div class="form-group">
                             <input class="form-control"
+                            required
                             type="file" 
                             onChange={this.handleImageChange}/>
                         </div>
                     <hr/>
                 <br/>
                 <button type="submit" class="btn btn-primary">Cadastrar Imovel</button>
-                <Link to="/feed">Feed</Link>
                </form>
            </div>
        )
