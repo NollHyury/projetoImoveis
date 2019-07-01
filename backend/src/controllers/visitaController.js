@@ -1,6 +1,8 @@
 const Visita = require('../models/visita');
 
 
+//aguardando implementação
+
 module.exports = {
 
     async getAll(req,res){

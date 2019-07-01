@@ -77,14 +77,22 @@ module.exports = {
     },
 
     async put(req,res){
-
+        await Imovel.findByIdAndUpdate(req,params.id,req.body,{new: true}).then(
+            imovel =>{
+                return res.json(imovel);
+            }
+        )
     },
 
     async delete(req,res){
-
+        await Imovel.findByIdAndDelete(req.params.id).then(
+            imovel => {
+                return res.json(imovel);
+            }
+        )
     },
 
-
+    //aguarndando implementação
     async postImage(req, res){
         
     },
