@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../services/apiIgluSistemas';
 import {Link} from 'react-router-dom'
+import NavBar from '../../Components/nav-bar-component/NavBarNotLogin'
 
 
 import './Cadastro.css';
@@ -43,6 +44,8 @@ class Cadastro extends Component {
   
     render(){
       return (
+        <div>
+        <NavBar/>
         <fieldset>
           <h2>Bem Vindo, Cadatre-se já!</h2>
           <form id="new-usuario" onSubmit={this.handleSubmit}>
@@ -107,6 +110,7 @@ class Cadastro extends Component {
               <br/>
           </form>
         </fieldset>
+        </div>
       )
   }
 }

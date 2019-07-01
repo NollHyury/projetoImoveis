@@ -2,7 +2,8 @@ import React, { Component} from 'react';
 import {Link} from 'react-router-dom'
 import api from '../../services/apiIgluSistemas';
 import {Button} from 'react-bootstrap';
-
+import {autenticacao} from '../../auth';
+import NavBar from '../../Components/nav-bar-component/NavBarNotLogin'
 
 
 
@@ -27,10 +28,9 @@ class Login extends Component{
         
         await api.post('usuario/pass', this.state).then(
             login =>{
-                if(login.data.status === true)
-                    this.props.history.push('/feed');
-                else
-                    alert('email ou senha incorretos!');
+                autenticacao(login.data.status)?(
+                    this.props.history.push('/userlog')
+                ) : alert('email ou senha incorretos!');
             }
         )
         
@@ -44,6 +44,8 @@ class Login extends Component{
     render(){
         return (
         <div id="formulario">
+        <NavBar/>
+
           <form id="login-usuario" onSubmit={this.handleSubmit}>
           <h2>Faça Seu Login</h2>
           <br/>

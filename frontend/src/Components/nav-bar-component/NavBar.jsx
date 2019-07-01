@@ -7,15 +7,15 @@ import './navBar.css'
 
 export default function NavBar(){
     return (
-<nav id="main-nav"class="navbar navbar-expand-sm bg-dark navbar-dark" >
+      <nav id="main-nav"class="navbar navbar-expand-sm bg-dark navbar-dark" >
 
-  <ul class="navbar-nav" id="lista">
-    <li class="nav-item">
-        <Link class="nav-link" to="/Feed">Home</Link>
-    </li>
-    <li class="nav-item">
-        <Link class="nav-link" to="/">Login</Link>
-    </li>
+        <ul class="navbar-nav" id="lista">
+          <li class="nav-item">
+            <Link class="nav-link" to="/userlog">Home</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/">Logout</Link>
+        </li>
 
     <li class="nav-item dropdown" id="cadastros">
       <Link class="nav-link dropdown-toggle" to="#" id="navbardrop" data-toggle="dropdown">
